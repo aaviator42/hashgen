@@ -5,10 +5,15 @@
 	<title>hashgen</title>
 	<style>
 	body {
-		font-family: monospace;
+		font-family: Verdana, sans-serif;
 		max-width: 50rem;
 		padding: 2rem;
 		margin: auto;
+		font-size: 1rem !important;
+	}
+	code, pre {
+		font-family: monospace;
+		background-color: #E6E6E6;
 	}
 	</style>
 	<noscript>
@@ -33,7 +38,7 @@ if(!isset($_POST["password"])){
 	?>
 <br>Your password is:
 <br>
-<textarea disabled rows=2 style="width: 24em" id="hashtext">
+<textarea disabled rows=2 style="width: 24em" id="passwordtext">
 <?php echo htmlspecialchars($_POST["password"]); ?></textarea>
 <br>
 <br>Your hashed password is:
@@ -74,6 +79,6 @@ function formPrint(){
 
 
 <br><br>
-<hr><b><a href="https://github.com/aaviator42/hashgen">Help/Source</a></b>
+<hr><small><b><a href="https://github.com/aaviator42/hashgen">Help/Source</a></b></small>
 </body>
 </html>
