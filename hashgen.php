@@ -47,7 +47,7 @@ if(!isset($_POST["password"])){
 <?php echo trim($hashedPassword); ?></textarea>
 
 <br>
-<yes-script><button onclick="copyHash()">Copy hash</button></yes-script>
+<yes-script><https-yes><button onclick="copyHash()">Copy hash</button></https-yes></yes-script>
 <br>
 <br>Hashed with <code>PASSWORD_BCRYPT</code>.
 <br>
@@ -55,12 +55,22 @@ if(!isset($_POST["password"])){
 
 
 <script>
- function copyHash() {
-  var copyText = document.getElementById("hashtext");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-  navigator.clipboard.writeText(copyText.value.trim());
-  alert("Hash copied to clipboard!");
+window.onload = elementHideHttp();
+function elementHideHttp(){
+	if (location.protocol === 'http:') {
+		var divsToHide = document.getElementsByTagName("https-yes");
+		for(var i = 0; i < divsToHide.length; i++){
+			divsToHide[i].style.display = "none";
+		}
+	}
+}
+
+function copyHash() {
+	var copyText = document.getElementById("hashtext");
+	copyText.select();
+	copyText.setSelectionRange(0, 99999); /* For mobile devices */
+	navigator.clipboard.writeText(copyText.value.trim());
+	alert("Hash copied to clipboard!");
 } 
 </script>
 	<?php
